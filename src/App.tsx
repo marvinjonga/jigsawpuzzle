@@ -9,33 +9,33 @@ function Square({ colour , moveButton }: { colour: string , moveButton: ()=>void
 export default function Puzzle() { 
   //initialise array
   const [colours, setColoures] = useState<string[]>([
-    '#000', 'white', 'gray', 'white', 'white', 'white', 'white', 'gray',
-    'white', 'white', 'gray', 'gray', 'gray', 'gray', 'gray', 'white', 
-    'white', 'gray', 'white', 'white', 'white', 'white', 'gray', 'white', 'white'
+    'gray', 'white', 'red', 'white', 'white', 'white', 'white', 'red',
+    'white', 'white', 'red', 'red', 'red', 'red', 'red', 'white', 
+    'white', 'red', 'white', 'white', 'white', 'white', 'red', 'white', 'white'
   ]);
 
   
   //on square click, only allow movement from orthogonally adjacent squares 
   function handleClick(i:number){
-    if(checkSolved(colours) || colours[i] == '#000'){
+    if(checkSolved(colours) || colours[i] == 'gray'){
       return;
     }
 
     const currentColour:string = colours[i];
     const newColours = colours.slice();
     const rows:number = 5;
-    if(colours[i+1] === '#000'){
+    if(colours[i+1] === 'gray'){
         newColours[i+1] = currentColour;
-    }else if(colours[i-1] === '#000'){
+    }else if(colours[i-1] === 'gray'){
         newColours[i-1] = currentColour;
-    }else if(colours[i+rows] === '#000'){
+    }else if(colours[i+rows] === 'gray'){
         newColours[i+rows] = currentColour;
-    }else if(colours[i-rows] === '#000'){
+    }else if(colours[i-rows] === 'gray'){
         newColours[i-rows] = currentColour;
     }else{
        return;
     }
-    newColours[i] = '#000';
+    newColours[i] = 'gray';
     setColoures(newColours); //repopulate puzzle grid with the new array after movement
   }
   let status:string = '';
@@ -97,9 +97,9 @@ export default function Puzzle() {
 }
 //determine if puzzle is solved
 function checkSolved(colours:string[]):boolean{
-  if(colours[2] == 'gray' && colours[7] == 'gray' && colours[10] == 'gray' && colours[11] == 'gray'
-   && colours[12] == 'gray' && colours[13] == 'gray'  && colours[14] == 'gray' && colours[17] == 'gray'
-   && colours[22] == 'gray'){
+  if(colours[2] == 'red' && colours[7] == 'red' && colours[10] == 'red' && colours[11] == 'red'
+   && colours[12] == 'red' && colours[13] == 'red'  && colours[14] == 'red' && colours[17] == 'red'
+   && colours[22] == 'red'){
     return true;
   }else{
     return false;
