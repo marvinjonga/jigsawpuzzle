@@ -5,4 +5,4 @@ Simple optimised traditional jigsaw puzzle game with one empty square, written i
 ## Installation & Setup 
 1. Clone the repo
 2. `npm install`
-3. `npm start`
+3. `npm run dev`
