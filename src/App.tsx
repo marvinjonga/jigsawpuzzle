@@ -95,7 +95,7 @@ export default function Puzzle() {
 </>
 )
 }
-//determine if puzzle is solved
+//determine if puzzle is solved.
 function checkSolved(colours:string[]):boolean{
   if(colours[2] == 'gray' && colours[7] == 'gray' && colours[10] == 'gray' && colours[11] == 'gray'
    && colours[12] == 'gray' && colours[13] == 'gray'  && colours[14] == 'gray' && colours[17] == 'gray'
