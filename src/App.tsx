@@ -54,7 +54,7 @@ export default function Puzzle() {
     setColoures(array);
 }
 
-  return (<div className='board'>
+  return (<>
     <button onClick={() => shuffleColours()}>Start Puzzle</button>
     <div className="status">{status}</div>
     <div className="row">
@@ -92,7 +92,7 @@ export default function Puzzle() {
       <Square colour={colours[23]} moveButton={() => handleClick(23)} />
       <Square colour={colours[24]} moveButton={() => handleClick(24)} />
     </div>
-</div>
+</>
 )
 }
 //determine if puzzle is solved.
